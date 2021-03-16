@@ -1,36 +1,39 @@
 .Signup_container {
-    padding-top: 50px;
-    padding-bottom: 50px;
-    min-height: calc(100vh - 139px);
+  padding-top: 50px;
+  padding-bottom: 50px;
+  min-height: calc(100vh - 139px);
+}
+
+.Signup_title {
+  text-transform: uppercase;
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 50px;
+}
+.Signup_form {
+  width: 80%;
+  margin: auto;
+  max-width: 350px;
+}
+.Signup_container input {
+  border-radius: 5px;
+  border-width: 1px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.Signup_container img {
+  width: 200px;
+  margin-top: 50px;
+}
+
+@media (min-width: 992px) {
+  .Signup_container {
+    padding-top: 100px;
+    padding-bottom: 100px;
   }
-  
-  .Signup_title {
-    text-transform: uppercase;
-    font-size: 1.8rem;
-    font-weight: bold;
-    margin-bottom: 50px;
-  }
-  .Signup_form {
-    width: 80%;
-    margin: auto;
-    max-width: 350px;
-  }
-  .Signup_container input {
-    border-radius: 5px;
-    border-width: 1px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
-    width: 100%;
-    margin-bottom: 10px;
-  }
-  
-  @media (min-width: 992px) {
-    .Signup_container {
-      padding-top: 100px;
-      padding-bottom: 100px;
-    }
-  }
-  
-  
+}

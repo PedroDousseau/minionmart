@@ -1,6 +1,7 @@
 import React from 'react';
 import './Signup.css';
 import BasicButton from '../../components/BasicButton/BasicButton';
+import happyMinions from '../../assets/happy-minions.png';
 
 export default function Signup() {
 
@@ -21,6 +22,8 @@ export default function Signup() {
             </BasicButton>  
        
             </div>
+
+            <img src={happyMinions} alt="" />
         </div>
     )
 }
