@@ -1,5 +1,5 @@
 import './App.css';
-import MyNavbar from './components/Navbar/MyNavbar';
+import MyNavbar from './components/MyNavbar/MyNavbar';
 import Routes from "./Routes";
 
 

@@ -1,0 +1,30 @@
+.ProductCard_container {
+  position: relative;
+  display: inline-block;
+  width: 150px;
+  margin-bottom: 50px;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+.ProductCard_title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.ProductCard_minionContainer {
+  position: relative;
+  padding-top: 20px;
+}
+.ProductCard_outlineSquare {
+  width: 100%;
+  border: 3px solid #000;
+  height: 100px;
+  position: absolute;
+  z-index: 1;
+  border-radius: 5px;
+  top: 0;
+}
+.ProductCard_minionContainer img {
+  width: 150px;
+  z-index: 5;
+  position: relative;
+}

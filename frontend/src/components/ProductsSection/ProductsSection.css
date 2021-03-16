@@ -1,0 +1,25 @@
+.ProductsSection_container {
+    background-color: #FFF;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.ProductsSection_title {
+    text-transform: uppercase;
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 50px;
+}
+
+@media (min-width: 768px) {
+
+}
+
+@media (min-width: 992px) {
+    .ProductsSection_container {
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+    .ProductsSection_title {
+        margin-bottom: 100px;
+    }
+}
