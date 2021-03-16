@@ -59,21 +59,27 @@ export default function Cart() {
             <div className="Cart_title">Carrinho</div>
             <p className="Cart_amountLabel">2 itens</p>
 
-            <CartProductList
-                order = {DEFAULT_ORDER}
-            />
+            <div className="Cart_row">
+                <CartProductList
+                    order = {DEFAULT_ORDER}
+                />
 
-            <OrderDetails
-                order={DEFAULT_ORDER}
-            />
+                <div className="Cart_orderColumn">
+                    <div className="Cart_orderColumnContent">
+                        <OrderDetails
+                            order={DEFAULT_ORDER}
+                        />
 
-            <BasicButton
-            color = "#FFF"
-            bgColor = "#0A75BC"
-            fullWidth
-            >
-                Finalizar compra
-            </BasicButton>
+                        <BasicButton
+                        color = "#FFF"
+                        bgColor = "#0A75BC"
+                        
+                        >
+                            Finalizar compra
+                        </BasicButton>
+                    </div>
+                </div>
+            </div>            
         </div>
     )
 }

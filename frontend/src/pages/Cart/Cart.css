@@ -11,6 +11,24 @@
   font-weight: bold;
 }
 .Cart_amountLabel {
-    font-size: 1rem;
-    margin-bottom: 50px;
+  font-size: 1rem;
+  margin-bottom: 50px;
+}
+
+@media (min-width: 992px) {
+  .Cart_row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+  }
+  .Cart_orderColumn {
+    width: 45%;
+    text-align: left;
+  }
+  .Cart_orderColumnContent {
+    max-width: 350px;
+    margin: auto;
+  }
 }

@@ -2,6 +2,7 @@
     width: 100%;
     margin: auto;
     margin-bottom: 50px;
+    max-width: 350px;
 }
 .CartProductCard_amountRow {
   display: flex;
