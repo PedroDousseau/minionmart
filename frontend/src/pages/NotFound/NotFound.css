@@ -1,0 +1,21 @@
+.NotFound_container {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  min-height: calc(100vh - 139px);
+  font-weight: bold;
+}
+
+.NotFound_homeLabel {
+  text-decoration: underline;
+  color: #231f20;
+  margin-top: 20px;
+  display: block;
+  font-weight: normal;
+}
+
+@media (min-width: 992px) {
+  .NotFound_container {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+}
