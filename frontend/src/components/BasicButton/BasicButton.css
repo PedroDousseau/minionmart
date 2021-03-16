@@ -1,0 +1,25 @@
+.BasicButton_mainContainer {
+  font-weight: bold;
+  border: none;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  width: max-content;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.BasicButton_mainContainer:hover {
+  opacity: 0.9;
+}
+.BasicButton_mainContainer:focus {
+  box-shadow: none;
+}
+
+@media (min-width: 768px) {
+
+}
+
+@media (min-width: 992px) {
+    
+}

@@ -1,0 +1,81 @@
+.Home_banner {
+    background-color: #231F20;
+    color: #FFF;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.Home_rowContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    width: 100%;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.Home_imgBanner {
+    width: 60%;
+    margin-top: 50px;
+    max-width: 150px;
+}
+.Home_leftContainer {
+    text-align: center;
+}
+.Home_bannerTitle {
+    color: #FCE029;
+    font-weight: bold;
+    font-size: 2rem;
+    max-width: 250px;
+    line-height: 1;
+    margin: auto;
+}
+.Home_bannerDesc {
+    max-width: 280px;
+    font-size: 1rem;
+    margin: auto;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+@media (min-width: 768px) {
+    .Home_rowContainer {
+        flex-direction: row;
+    }
+    .Home_leftContainer {
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .Home_bannerTitle {
+        margin: unset;
+    }
+    .Home_bannerDesc {
+        margin: unset;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+    .Home_imgBanner {
+        max-width: 300px;
+    }
+}
+
+
+@media (min-width: 992px) {
+    .Home_bannerTitle {
+        font-size: 4rem;
+        max-width: 335px;
+    }
+    .Home_bannerDesc {
+        font-size: 2rem;
+        max-width: 400px;
+    }
+    .Home_imgBanner {
+        max-width: 500px;
+    }
+    .Home_banner {
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+}
+
