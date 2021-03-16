@@ -16,7 +16,7 @@
 }
 .ProductCard_outlineSquare {
   width: 100%;
-  border: 3px solid #000;
+  border: 3px solid #231F20;
   height: 100px;
   position: absolute;
   z-index: 1;
