@@ -13,7 +13,7 @@ export default function CartProductCard(props) {
 
     const selectOptions = options.map((index) => {
         return (
-            <option key={index} selected = {index === props.item.amount} value={index}>{index}</option>
+            <option key={index} value={index}>{index}</option>
         )
     })
 
@@ -26,7 +26,7 @@ export default function CartProductCard(props) {
 
             <div className="CartProductCard_amountRow">
                 <div>Quantidade:</div>
-                <select className="CartProductCard_select">
+                <select defaultValue={props.item.amount} className="CartProductCard_select">
                     {selectOptions}
                 </select>
             </div>
