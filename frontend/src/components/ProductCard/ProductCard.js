@@ -29,7 +29,7 @@ export default function ProductCard(props) {
 
         <div className="ProductCard_minionContainer">
             <div className="ProductCard_outlineSquare"></div>
-            <img src={props.product.img} />
+            <img src={props.product.img} alt="" />
         </div>
 
     {shopButton}

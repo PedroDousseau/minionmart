@@ -10,7 +10,7 @@ export default function Login() {
 
         <h3 className="Login_title">Login</h3>
 
-        <div class="Login_form">
+        <div className="Login_form">
             <input placeholder="E-mail"></input>
             <input placeholder="Senha"></input>
 
@@ -25,7 +25,7 @@ export default function Login() {
             <Link className="Login_signupLabel" to="signup">Crie uma conta!</Link>          
         </div>
 
-        <img src={loginImage} />
+        <img src={loginImage} alt=""/>
 
     </div>
   );

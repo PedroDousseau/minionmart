@@ -9,7 +9,7 @@ export default function Signup() {
         <div className="Signup_container">
             <h3 className="Signup_title">Criar conta</h3>
 
-            <div class="Signup_form">
+            <div className="Signup_form">
             <input placeholder="E-mail"></input>
             <input placeholder="Senha"></input>
 
