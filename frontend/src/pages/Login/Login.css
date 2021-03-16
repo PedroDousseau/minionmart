@@ -36,3 +36,11 @@
     width: 200px;
     margin-top: 50px;
 }
+
+@media (min-width: 992px) {
+  .Login_container {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+}
+

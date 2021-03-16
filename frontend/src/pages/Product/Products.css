@@ -65,4 +65,8 @@
 }
 
 @media (min-width: 992px) {
+  .Product_container {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
 }
