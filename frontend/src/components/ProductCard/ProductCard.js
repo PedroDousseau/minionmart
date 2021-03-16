@@ -4,6 +4,24 @@ import './ProductCard.css'
 import {Link} from 'react-router-dom'
 
 export default function ProductCard(props) {
+
+  const shopButton = (props.shopButton ? 
+    <Link to={{
+    pathname:'/product/' + props.product.id,
+    state: {
+    product: props.product
+    }
+    }}>
+      <BasicButton
+      color="#FFF"
+      bgColor="#0A75BC"
+      fullWidth
+      >
+      Comprar
+      </BasicButton>
+    </Link> : 
+  '')
+
   return (
     <div className="ProductCard_container">
     
@@ -14,20 +32,8 @@ export default function ProductCard(props) {
             <img src={props.product.img} />
         </div>
 
-<Link to={{
-  pathname:'/product/' + props.product.id,
-  state: {
-    product: props.product
-  }
-}}>
-    <BasicButton
-    color="#FFF"
-    bgColor="#0A75BC"
-    fullWidth
-    >
-        Comprar
-    </BasicButton>
-    </Link>
+    {shopButton}
+
     </div>
   );
 } 

@@ -1,0 +1,16 @@
+.OrderDetails_container {
+  text-align: left;
+  width: 100%;
+  margin: auto;
+  margin-bottom: 25px;
+  border-top: 2px solid #231F20;
+  padding-top: 25px;
+}
+.OrderDetails_title {
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0px;
+}
+.OrderDetails_orderRow {
+  margin: 0px;
+}

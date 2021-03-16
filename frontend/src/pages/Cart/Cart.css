@@ -1,0 +1,16 @@
+.Cart_container {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  min-height: calc(100vh - 139px);
+  width: 80%;
+  margin: auto;
+}
+.Cart_title {
+  text-transform: uppercase;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+.Cart_amountLabel {
+    font-size: 1rem;
+    margin-bottom: 50px;
+}

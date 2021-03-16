@@ -59,6 +59,7 @@ export default function ProductsList() {
     const products = DEFAULT_DATA.map((product) => {
         return (
             <ProductCard
+            shopButton
             key = {product.id}
             product = {product}
             />

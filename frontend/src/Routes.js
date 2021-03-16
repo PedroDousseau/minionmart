@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
+import Cart from "./pages/Cart/Cart";
 import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
 import NotFound from "./pages/NotFound/NotFound";
@@ -20,6 +21,9 @@ export default function Routes() {
             </Route>
             <Route exact path="/product/:id">
                 <Product />
+            </Route>
+            <Route exact path="/cart">
+                <Cart />
             </Route>
             <Route>
                 <NotFound />

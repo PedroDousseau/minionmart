@@ -14,11 +14,18 @@ export default function MyNavbar() {
         <Navbar.Toggle />
 
         <Navbar.Collapse className="justify-content-end">
+
+        <Nav>
+          <LinkContainer to="/cart">
+            <Nav.Link>Meu carrinho</Nav.Link>
+          </LinkContainer>
+        </Nav>
         <Nav>
           <LinkContainer to="/login">
             <Nav.Link>Login</Nav.Link>
           </LinkContainer>
         </Nav>
+        
         </Navbar.Collapse>
       </Navbar>
     </div>
