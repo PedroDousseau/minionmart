@@ -16,6 +16,7 @@ export default function Product(props) {
     return (
         <div className="Product_container">
 
+        <div className="Product_row">
             <div className="Product_imgContainer">
                 <img src={product.img} alt="" />
             </div>
@@ -37,5 +38,6 @@ export default function Product(props) {
                 </BasicButton>
             </div>
         </div>  
+        </div>
     );
 }

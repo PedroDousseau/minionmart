@@ -1,6 +1,9 @@
 .Product_container {
   padding-top: 50px;
   padding-bottom: 50px;
+  min-height: calc(100vh - 140px);
+}
+.Product_row {
   color: #231f20;
 }
 .Product_imgContainer {
@@ -38,7 +41,7 @@
 }
 
 @media (min-width: 768px) {
-  .Product_container {
+  .Product_row {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -56,7 +59,7 @@
     margin: unset;
     width: 40%;
   }
-  .Product_container img {
+  .Product_row img {
     width: 300px;
   }
 }
