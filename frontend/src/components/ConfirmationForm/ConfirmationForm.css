@@ -1,0 +1,43 @@
+.ConfirmationForm_container {
+}
+.ConfirmationForm_title {
+  text-transform: uppercase;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+.ConfirmationForm_subtitle {
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    font-size: 1rem;
+    margin-bottom: 50px;
+  }  
+.ConfirmationForm_form {
+  width: 80%;
+  margin: auto;
+  max-width: 350px;
+}
+.ConfirmationForm_container input {
+  border-radius: 5px;
+  border-width: 1px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 100%;
+  margin-bottom: 10px;
+  border-color: #231f20;
+}
+
+.ConfirmationForm_error {
+  font-size: 1rem;
+  margin-top: 20px;
+  margin-bottom: 0px;
+  font-weight: bold;
+}
+.ConfirmationForm_resendCode {
+    text-decoration: underline;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 0px;
+}

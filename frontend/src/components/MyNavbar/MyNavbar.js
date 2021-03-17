@@ -2,8 +2,18 @@ import './MyNavbar.css';
 import React from "react";
 import {Navbar, Nav} from 'react-bootstrap';
 import { LinkContainer } from "react-router-bootstrap";
+import { useAuthContext } from '../../contexts/auth';
+import { Auth } from "aws-amplify";
 
 export default function MyNavbar() {
+
+  const { isAuthenticated, setIsAuthenticated } = useAuthContext();
+
+  async function handleLogout() {
+    await Auth.signOut();
+    setIsAuthenticated(false);
+  }  
+
   return (
     <div className="navbar-bg">
       <Navbar className="container">
@@ -15,16 +25,24 @@ export default function MyNavbar() {
 
         <Navbar.Collapse className="justify-content-end">
 
-        <Nav>
-          <LinkContainer to="/cart">
-            <Nav.Link>Meu carrinho</Nav.Link>
-          </LinkContainer>
-        </Nav>
-        <Nav>
-          <LinkContainer to="/login">
-            <Nav.Link>Login</Nav.Link>
-          </LinkContainer>
-        </Nav>
+          {isAuthenticated ? (
+            <>
+            <Nav>
+              <LinkContainer to="/cart">
+                <Nav.Link>Meu carrinho</Nav.Link>
+              </LinkContainer>
+            </Nav>
+            <Nav>
+                <Nav.Link onClick={handleLogout}>Sair</Nav.Link>
+            </Nav>
+            </>
+          ) : (
+            <Nav>
+              <LinkContainer to="/login">
+                <Nav.Link>Login</Nav.Link>
+              </LinkContainer>
+            </Nav>
+          )}
         
         </Navbar.Collapse>
       </Navbar>

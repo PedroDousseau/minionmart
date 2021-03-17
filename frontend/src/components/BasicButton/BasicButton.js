@@ -1,14 +1,24 @@
 import './BasicButton.css';
 import React from "react";
+import { VscLoading } from "react-icons/vsc";
 
-export default function BasicButton(props) {
+export default function BasicButton({
+  color,
+  bgColor,
+  fullWidth,
+  onClick,
+  isLoading,
+  children
+}) {
   return (
     <button 
+    disabled = {isLoading}
     className="BasicButton_mainContainer" 
-    style={{backgroundColor: props.bgColor, color: props.color, width: props.fullWidth ? '100%' : 'max-content'}}
-    onClick = {props.onClick}
+    style={{backgroundColor: bgColor, color: color, width: fullWidth ? '100%' : 'max-content'}}
+    onClick = {onClick}
     >
-        {props.children}
+        {isLoading && <VscLoading className="spinIcon" />}
+        {!isLoading && children}
     </button>
   );
 }
