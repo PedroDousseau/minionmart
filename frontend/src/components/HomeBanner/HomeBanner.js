@@ -3,7 +3,18 @@ import BasicButton from "../../components/BasicButton/BasicButton";
 import './HomeBanner.css'
 import bannerImg from "../../assets/banner-minions.png";
 
+import { scroller } from 'react-scroll';
+
 export default function HomeBanner() {
+
+  function scrollToProducts() {
+    scroller.scrollTo('productsSection', {
+      duration: 600,
+      delay: 0,
+      smooth: 'easeInOutBack'
+    })
+  }
+
   return (
     <div className="Home_banner">
 
@@ -14,6 +25,8 @@ export default function HomeBanner() {
           <BasicButton
           color="#231F20"
           bgColor="#FCE029"
+          to="test1" 
+          onClick={() => scrollToProducts()}
           >
             Ver produtos!
           </BasicButton>
@@ -23,7 +36,6 @@ export default function HomeBanner() {
           <img className="Home_imgBanner" src={bannerImg} alt=""/>
         </div>
         </div>
-
     </div>
   );
 } 
