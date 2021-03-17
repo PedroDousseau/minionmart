@@ -4,13 +4,21 @@ import {Navbar, Nav} from 'react-bootstrap';
 import { LinkContainer } from "react-router-bootstrap";
 import { useAuthContext } from '../../contexts/auth';
 import { Auth } from "aws-amplify";
+import { useShopContext } from '../../contexts/shop';
+import { ClearCart } from '../../api/cartService';
 
 export default function MyNavbar() {
 
   const { isAuthenticated, setIsAuthenticated } = useAuthContext();
+  const { userCart, setUserCart } = useShopContext();
+
+  const totalItems = userCart.reduce((acc, cur) => {
+    return (acc + cur.amount)
+  }, 0)
 
   async function handleLogout() {
     await Auth.signOut();
+    ClearCart(setUserCart);
     setIsAuthenticated(false);
   }  
 
@@ -29,7 +37,7 @@ export default function MyNavbar() {
             <>
             <Nav>
               <LinkContainer to="/cart">
-                <Nav.Link>Meu carrinho</Nav.Link>
+                <Nav.Link>Meu carrinho ({totalItems})</Nav.Link>
               </LinkContainer>
             </Nav>
             <Nav>

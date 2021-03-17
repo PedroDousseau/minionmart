@@ -8,11 +8,12 @@ export default function BasicButton({
   fullWidth,
   onClick,
   isLoading,
-  children
+  children,
+  disabled
 }) {
   return (
     <button 
-    disabled = {isLoading}
+    disabled = {isLoading || disabled}
     className="BasicButton_mainContainer" 
     style={{backgroundColor: bgColor, color: color, width: fullWidth ? '100%' : 'max-content'}}
     onClick = {onClick}

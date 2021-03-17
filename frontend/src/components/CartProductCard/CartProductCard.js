@@ -2,11 +2,16 @@ import React from 'react';
 import './CartProductCard.css';
 import ProductCard from '../ProductCard/ProductCard';
 import BasicButton from '../BasicButton/BasicButton';
+import { useShopContext } from '../../contexts/shop';
+import { AddToCart, RemoveFromCart } from '../../api/cartService';
 
-export default function CartProductCard(props) {
+export default function CartProductCard({
+        item
+    }) {
+
+    const { userCart, setUserCart } = useShopContext();
 
     const maxItens = 9;
-
     const options = [];
 
     for (let i = 1; i <= maxItens; i++) { options.push(i); }
@@ -20,13 +25,17 @@ export default function CartProductCard(props) {
     return (
         <div className="CartProductCard_container">
             <ProductCard
-            key = {props.item.product.id}
-            product = {props.item.product}
+            key = {item.product.id}
+            product = {item.product}
             />
 
             <div className="CartProductCard_amountRow">
                 <div>Quantidade:</div>
-                <select defaultValue={props.item.amount} className="CartProductCard_select">
+                <select 
+                defaultValue={item.amount} 
+                className="CartProductCard_select"
+                onChange={(e) => {AddToCart(userCart, setUserCart, item.product, parseInt(e.target.value))}} 
+                >
                     {selectOptions}
                 </select>
             </div>
@@ -34,6 +43,7 @@ export default function CartProductCard(props) {
             fullWidth
             color = "#231F20"
             bgColor = "#FCE029"
+            onClick = {() => {RemoveFromCart(userCart, setUserCart, item.product)}}
             >
                 Remover
             </BasicButton>

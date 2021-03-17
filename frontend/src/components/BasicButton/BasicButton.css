@@ -9,11 +9,11 @@
   padding-right: 20px;
   border-radius: 5px;
 }
-.BasicButton_mainContainer:disabled {
-  opacity: 0.5;
-}
 .BasicButton_mainContainer:hover {
   opacity: 0.9;
+}
+.BasicButton_mainContainer:disabled {
+  opacity: 0.5;
 }
 .BasicButton_mainContainer:focus {
   box-shadow: none;

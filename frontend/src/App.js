@@ -5,15 +5,19 @@ import Footer from './components/Footer/Footer';
 import Routes from "./Routes";
 import { AuthContext } from './contexts/auth';
 import { Auth } from "aws-amplify";
+import { ShopContext } from './contexts/shop';
+import { LoadCart } from './api/cartService';
 
 
 function App() {
-
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isAuthenticating, setIsAuthenticating] = useState(true);
+  const [products, setProducts] = useState([]);
+  const [userCart, setUserCart] = useState(null);
 
   useEffect(() => {
     loadUserSession();
+    LoadCart(setUserCart);
   }, [])
 
   async function loadUserSession() {
@@ -35,10 +39,11 @@ function App() {
     
     <div className="container-fluid App">
       <AuthContext.Provider value={{ isAuthenticated, setIsAuthenticated }}>
-        <MyNavbar/>
-        <Routes />
+        <ShopContext.Provider value={{products, setProducts, userCart, setUserCart}}>
+          <MyNavbar/>
+          <Routes />
+        </ShopContext.Provider>
       </AuthContext.Provider>
-
       <Footer/>
     </div>
   );

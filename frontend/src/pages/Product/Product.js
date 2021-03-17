@@ -1,17 +1,38 @@
 import React from 'react';
-import { useLocation, Redirect } from 'react-router';
+import { useLocation } from 'react-router';
+import { AddToCart } from '../../api/cartService';
 import BasicButton from '../../components/BasicButton/BasicButton';
+import { useShopContext } from '../../contexts/shop';
 import './Products.css';
 
-export default function Product(props) {
+export default function Product() {
+
+    const { userCart, setUserCart } = useShopContext();
 
     const location = useLocation();
-
-    if (!location.state || !location.state.product) {
-        return <Redirect to='/notFound'/>;
-    }
-
     const product = location.state.product;
+
+    const isOnCart = userCart.find((el) => el.product.id === product.id)
+
+    const renderAddToCartButton = (
+        <BasicButton
+        color="#FFF"
+        bgColor="#0A75BC"
+        onClick = {() => {AddToCart(userCart, setUserCart, product)}}
+        >
+            Adicionar ao carrinho
+        </BasicButton>
+    )
+
+    const renderAlreadyInCartButton = (
+        <BasicButton
+        color="#FFF"
+        bgColor="#0A75BC"
+        disabled
+        >
+            Já adicionado
+        </BasicButton>
+    )
 
     return (
         <div className="Product_container">
@@ -30,12 +51,7 @@ export default function Product(props) {
                 <p className="Product_detailsTitle">Detalhes técnicos:</p>
                 <p className="Product_details" dangerouslySetInnerHTML={{ __html:product.details}}></p>
 
-                <BasicButton
-                color="#FFF"
-                bgColor="#0A75BC"
-                >
-                    Adicionar ao carrinho
-                </BasicButton>
+                {(isOnCart) ? renderAlreadyInCartButton : renderAddToCartButton}
             </div>
         </div>  
         </div>

@@ -1,15 +1,15 @@
 import React from "react";
 import BasicButton from "../../components/BasicButton/BasicButton";
 import './ProductCard.css'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
-export default function ProductCard(props) {
+export default function ProductCard({product, shopButton}) {
 
-  const shopButton = (props.shopButton ? 
+  const renderShopButton = (shopButton ? 
     <Link to={{
-    pathname:'/product/' + props.product.id,
+    pathname:'/product/' + product.id,
     state: {
-    product: props.product
+    product: product
     }
     }}>
       <BasicButton
@@ -25,14 +25,14 @@ export default function ProductCard(props) {
   return (
     <div className="ProductCard_container">
     
-        <h3 className="ProductCard_title">{props.product.title}</h3>
+        <h3 className="ProductCard_title">{product.title}</h3>
 
         <div className="ProductCard_minionContainer">
             <div className="ProductCard_outlineSquare"></div>
-            <img src={props.product.img} alt="" />
+            <img src={product.img} alt="" />
         </div>
 
-    {shopButton}
+    {renderShopButton}
 
     </div>
   );
