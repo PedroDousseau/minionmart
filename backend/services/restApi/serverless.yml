@@ -1,0 +1,83 @@
+# NOTE: update this with your service name
+service: aum-api
+
+# Create an optimized package for our functions 
+package:
+  individually: true
+
+plugins:
+  - serverless-bundle # Package our functions with Webpack
+  - serverless-offline
+  - serverless-dotenv-plugin # Load .env as environment variables
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  stage: prod
+  region: sa-east-1
+  # To load environment variables externally
+  # rename env.example to .env and uncomment
+  # the following line. Also, make sure to not
+  # commit your .env.
+  #
+  #environment:
+  #  SAMPLE_ENV_VAR: ${env:SAMPLE_ENV_VAR}
+  
+  # These environment variables are made available to our functions
+  # under process.env.
+  environment:
+    tableName: productCatalog
+    
+  # 'iamRoleStatements' defines the permission policy for the Lambda function.
+  # In this case Lambda functions are granted with permissions to access DynamoDB.
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:Scan
+        - dynamodb:Query
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+        - dynamodb:DescribeTable
+      Resource: "arn:aws:dynamodb:sa-east-1:*:*"    
+
+functions:
+  list-products:
+    handler: products/list.main
+    events:
+      - http:
+          path: products
+          method: get
+          cors: true
+          
+  create-products:
+    handler: products/create.main
+    events:
+      - http:
+          path: products
+          method: post
+          cors: true
+          authorizer: aws_iam
+          
+  list-orders:
+    handler: orders/list.main
+    events:
+      - http:
+          path: orders
+          method: get
+          cors: true
+          authorizer: aws_iam
+          
+  create-orders:
+    handler: orders/create.main
+    events:
+      - http:
+          path: orders
+          method: post
+          cors: true
+          authorizer: aws_iam
+          
+resources:
+  # API Gateway Errors
+  - ${file(../../resources/api-gateway-errors.yml)}          
