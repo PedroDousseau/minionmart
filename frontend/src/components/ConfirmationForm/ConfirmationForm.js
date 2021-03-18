@@ -32,6 +32,10 @@ export default function ConfirmationForm({email, password}) {
                 setError("Código inválido.");
                 break;
 
+                case 'ExpiredCodeException':
+                setError("Código expirado, solicite um novo logo abaixo.");
+                break;
+
                 default:
                 setError("Algo deu errado, tente novamente.");
                 break;

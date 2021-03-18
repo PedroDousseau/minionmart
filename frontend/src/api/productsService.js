@@ -4,7 +4,7 @@ export async function LoadProducts(setProducts) {
     let productCatalog;
 
     const localProductCatalog = JSON.parse(localStorage.getItem('productCatalog'));
- 
+
     if(!localProductCatalog) {
         productCatalog = await API.get("minion-shop", "/products");
         localStorage.setItem('productCatalog', JSON.stringify(productCatalog));
@@ -15,5 +15,4 @@ export async function LoadProducts(setProducts) {
     if(!productCatalog) productCatalog = [];
 
     setProducts(productCatalog);
-    
 }

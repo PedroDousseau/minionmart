@@ -3,6 +3,7 @@ import ProductCard from "../ProductCard/ProductCard";
 import './ProductsList.css';
 import { useShopContext } from "../../contexts/shop";
 import { LoadProducts } from '../../api/productsService';
+import { VscLoading } from "react-icons/vsc";
 
 export default function ProductsList() {
     
@@ -12,9 +13,12 @@ export default function ProductsList() {
 
     useEffect(() => {
         setIsLoading(true);
-        LoadProducts(setProducts);
-        setIsLoading(false);
-    }, [])
+
+        LoadProducts(setProducts).then(() => {
+            setIsLoading(false);
+        });
+
+    }, [setProducts])
 
     const productsList = products.map((product) => {
         return (
@@ -26,9 +30,13 @@ export default function ProductsList() {
         )
     })
 
+    const renderLoading = (
+        <VscLoading className="ProductList_spinIcon" />
+    )
+
     return (
         <div className="ProductsList_container">
-            {productsList}
+            {isLoading ? renderLoading : productsList}
         </div>
     );
 } 
