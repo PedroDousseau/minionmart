@@ -4,8 +4,15 @@ import './Cart.css'
 import { useShopContext } from '../../contexts/shop';
 import OrderDetails from '../../components/OrderDetails/OrderDetails';
 import BasicButton from '../../components/BasicButton/BasicButton';
+import { useAuthContext } from '../../contexts/auth';
+import { useHistory } from 'react-router';
 
 export default function Cart() {
+
+    const { isAuthenticated } = useAuthContext();
+    const history = useHistory();
+
+    if(!isAuthenticated) history.replace('/login');
 
     const { userCart } = useShopContext();
 

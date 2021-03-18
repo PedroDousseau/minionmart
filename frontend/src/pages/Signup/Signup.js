@@ -4,8 +4,15 @@ import BasicButton from '../../components/BasicButton/BasicButton';
 import happyMinions from '../../assets/happy-minions.png';
 import { Auth } from 'aws-amplify';
 import ConfirmationForm from '../../components/ConfirmationForm/ConfirmationForm';
+import { useAuthContext } from '../../contexts/auth';
+import { useHistory } from 'react-router';
 
 export default function Signup() {
+
+    const { isAuthenticated } = useAuthContext();
+    const history = useHistory();
+
+    if(isAuthenticated) history.replace('/');
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");

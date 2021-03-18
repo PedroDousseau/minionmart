@@ -1,13 +1,17 @@
 import React from 'react';
-import { useLocation } from 'react-router';
+import { useLocation, useHistory } from 'react-router';
 import { AddToCart } from '../../api/cartService';
 import BasicButton from '../../components/BasicButton/BasicButton';
 import { useShopContext } from '../../contexts/shop';
+import { useAuthContext } from '../../contexts/auth';
 import './Products.css';
 
 export default function Product() {
 
     const { userCart, setUserCart } = useShopContext();
+    const { isAuthenticated } = useAuthContext();
+
+    const history = useHistory();
 
     const location = useLocation();
     const product = location.state.product;
@@ -18,7 +22,11 @@ export default function Product() {
         <BasicButton
         color="#FFF"
         bgColor="#0A75BC"
-        onClick = {() => {AddToCart(userCart, setUserCart, product)}}
+        onClick = {() => {
+            if(!isAuthenticated) history.push('/login');
+
+            else AddToCart(userCart, setUserCart, product)
+        }}
         >
             Adicionar ao carrinho
         </BasicButton>

@@ -10,8 +10,10 @@ import ConfirmationForm from "../../components/ConfirmationForm/ConfirmationForm
 
 export default function Login() {
 
-  const { setIsAuthenticated } = useAuthContext();
+  const { isAuthenticated, setIsAuthenticated } = useAuthContext();
   const history = useHistory();
+
+  if(isAuthenticated) history.replace('/');
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
