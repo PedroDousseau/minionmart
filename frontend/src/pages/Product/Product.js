@@ -12,7 +12,7 @@ export default function Product() {
     const location = useLocation();
     const product = location.state.product;
 
-    const isOnCart = userCart.find((el) => el.product.id === product.id)
+    const isOnCart = userCart.find((el) => el.product.productId === product.productId)
 
     const renderAddToCartButton = (
         <BasicButton
@@ -43,7 +43,7 @@ export default function Product() {
             </div>
 
             <div className="Product_info">
-                <h3 className="Product_title">{product.title}</h3>
+                <h3 className="Product_title">{product.name}</h3>
 
                 
                 <h2 className="Product_description" dangerouslySetInnerHTML={{ __html: product.description }}></h2>

@@ -6,7 +6,7 @@ export function LoadCart(setUserCart) {
 export function AddToCart(userCart, setUserCart, product, amount = 1) {
     const cart = userCart.slice();
 
-    const index = cart.findIndex((el) => el.product.id === product.id);
+    const index = cart.findIndex((el) => el.product.productId === product.productId);
 
     if(index === -1) { // Product not on cart
         cart.push({
@@ -24,7 +24,7 @@ export function AddToCart(userCart, setUserCart, product, amount = 1) {
 export function RemoveFromCart(userCart, setUserCart, product) {
     const cart = userCart.slice();
 
-    const index = cart.findIndex((el) => el.product.id === product.id);
+    const index = cart.findIndex((el) => el.product.productId === product.productId);
 
     cart.splice(index, 1);
 

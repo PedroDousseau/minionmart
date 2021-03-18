@@ -7,7 +7,7 @@ export default function ProductCard({product, shopButton}) {
 
   const renderShopButton = (shopButton ? 
     <Link to={{
-    pathname:'/product/' + product.id,
+    pathname:'/product/' + product.name,
     state: {
     product: product
     }
@@ -25,7 +25,7 @@ export default function ProductCard({product, shopButton}) {
   return (
     <div className="ProductCard_container">
     
-        <h3 className="ProductCard_title">{product.title}</h3>
+        <h3 className="ProductCard_title">{product.name}</h3>
 
         <div className="ProductCard_minionContainer">
             <div className="ProductCard_outlineSquare"></div>

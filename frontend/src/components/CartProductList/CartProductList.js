@@ -10,7 +10,7 @@ export default function CartProductList() {
     const productsList = userCart.map((item) => {
         return (
             <CartProductCard
-            key = {item.product.id}
+            key = {item.product.productId}
             item = {item}
             />
         )

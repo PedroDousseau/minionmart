@@ -7,9 +7,9 @@ export default function OrderDetails(props) {
         return (
             <p 
             className = "OrderDetails_orderRow"
-            key = {item.product.id}
+            key = {item.product.productId}
             >
-                {item.amount}x {item.product.title}
+                {item.amount}x {item.product.name}
             </p>
         )
     })

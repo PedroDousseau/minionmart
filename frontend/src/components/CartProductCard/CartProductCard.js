@@ -25,7 +25,7 @@ export default function CartProductCard({
     return (
         <div className="CartProductCard_container">
             <ProductCard
-            key = {item.product.id}
+            key = {item.product.productId}
             product = {item.product}
             />
 

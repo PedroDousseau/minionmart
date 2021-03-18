@@ -19,7 +19,7 @@ export default function Routes() {
             <Route exact path="/signup">
                 <Signup />
             </Route>
-            <Route exact path="/product/:id">
+            <Route exact path="/product/:name">
                 <Product />
             </Route>
             <Route exact path="/cart">
