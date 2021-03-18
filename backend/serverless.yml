@@ -22,11 +22,22 @@ provider:
   #
   #environment:
   #  SAMPLE_ENV_VAR: ${env:SAMPLE_ENV_VAR}
+  
+  # These environment variables are made available to our functions
+  # under process.env.
+  environment:
+    tableName: productCatalog
 
 functions:
-  hello:
-    handler: handler.hello
+  list:
+    handler: list.main
     events:
       - http:
-          path: hello
+          path: products
           method: get
+  create:
+    handler: create.main
+    events:
+      - http:
+          path: products
+          method: post          
