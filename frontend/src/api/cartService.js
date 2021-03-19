@@ -34,5 +34,5 @@ export function RemoveFromCart(userCart, setUserCart, product) {
 
 export function ClearCart(setUserCart) {
     setUserCart([]);
-    localStorage.setItem('userCart', JSON.stringify([]))
+    localStorage.setItem('userCart', JSON.stringify([]));
 }

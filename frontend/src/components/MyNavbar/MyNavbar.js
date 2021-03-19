@@ -6,11 +6,12 @@ import { useAuthContext } from '../../contexts/auth';
 import { Auth } from "aws-amplify";
 import { useShopContext } from '../../contexts/shop';
 import { ClearCart } from '../../api/cartService';
+import { ClearOrders } from '../../api/ordersService';
 
 export default function MyNavbar() {
 
   const { isAuthenticated, setIsAuthenticated } = useAuthContext();
-  const { userCart, setUserCart } = useShopContext();
+  const { userCart, setUserCart, setUserOrders } = useShopContext();
 
   const totalItems = userCart.reduce((acc, cur) => {
     return (acc + cur.amount)
@@ -19,6 +20,7 @@ export default function MyNavbar() {
   async function handleLogout() {
     await Auth.signOut();
     ClearCart(setUserCart);
+    ClearOrders(setUserOrders);
     setIsAuthenticated(false);
   }  
 

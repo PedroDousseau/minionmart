@@ -12,8 +12,10 @@ import { LoadCart } from './api/cartService';
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isAuthenticating, setIsAuthenticating] = useState(true);
+
   const [products, setProducts] = useState([]);
   const [userCart, setUserCart] = useState(null);
+  const [userOrders, setUserOrders] = useState(null);
 
   useEffect(() => {
     loadUserSession();
@@ -39,7 +41,7 @@ function App() {
     
     <div className="container-fluid App">
       <AuthContext.Provider value={{ isAuthenticated, setIsAuthenticated }}>
-        <ShopContext.Provider value={{products, setProducts, userCart, setUserCart}}>
+        <ShopContext.Provider value={{products, setProducts, userCart, setUserCart, userOrders, setUserOrders}}>
           <MyNavbar/>
           <Routes />
         </ShopContext.Provider>

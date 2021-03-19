@@ -1,18 +1,15 @@
 import { API } from 'aws-amplify';
 
 export async function LoadProducts(setProducts) {
-    let productCatalog;
 
-    const localProductCatalog = JSON.parse(localStorage.getItem('productCatalog'));
+    let productCatalog = JSON.parse(localStorage.getItem('productCatalog'));
 
-    if(!localProductCatalog) {
+    if(!productCatalog) { // Product catalog needs to be retrieved from database
         productCatalog = await API.get("minion-shop", "/products");
-        localStorage.setItem('productCatalog', JSON.stringify(productCatalog));
-    } else {
-        productCatalog = localProductCatalog;
     }
 
     if(!productCatalog) productCatalog = [];
 
     setProducts(productCatalog);
+    localStorage.setItem('productCatalog', JSON.stringify(productCatalog));
 }
