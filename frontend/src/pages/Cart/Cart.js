@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import CartProductList from '../../components/CartProductList/CartProductList';
 import './Cart.css'
 import { useShopContext } from '../../contexts/shop';
@@ -19,15 +19,18 @@ export default function Cart() {
 
     const { userCart, setUserCart, setUserOrders } = useShopContext();
 
-    const [modalShow, setModalShow] = React.useState(false);
+    const [modalShow, setModalShow] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
 
     const totalItems = userCart.reduce((acc, cur) => {
         return (acc + cur.amount)
     }, 0)
 
     async function shop() {
+        setIsLoading(true);
         await createOrder(userCart, setUserCart, setUserOrders);
         setModalShow(true);
+        setIsLoading(false);
     }
 
     const renderCartDetails = (
@@ -41,6 +44,7 @@ export default function Cart() {
             color = "#FFF"
             bgColor = "#0A75BC"
             onClick = {() => {shop()}}
+            isLoading = {isLoading}
             >
                 Finalizar compra
             </BasicButton>
