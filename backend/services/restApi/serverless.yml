@@ -9,6 +9,7 @@ plugins:
   - serverless-bundle # Package our functions with Webpack
   - serverless-offline
   - serverless-dotenv-plugin # Load .env as environment variables
+  - serverless-step-functions
 
 provider:
   name: aws
@@ -27,6 +28,10 @@ provider:
   # under process.env.
   environment:
     tableName: productCatalog
+    orderTable: orders
+    emailSender: minion.shop.app@gmail.com
+    sendGridApiKey: ${env:SENDGRID_API_KEY}
+
     
   # 'iamRoleStatements' defines the permission policy for the Lambda function.
   # In this case Lambda functions are granted with permissions to access DynamoDB.
@@ -40,7 +45,7 @@ provider:
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
         - dynamodb:DescribeTable
-      Resource: "arn:aws:dynamodb:sa-east-1:*:*"    
+      Resource: "arn:aws:dynamodb:sa-east-1:*:*"
 
 functions:
   list-products:
@@ -60,11 +65,11 @@ functions:
           cors: true
           authorizer: aws_iam
           
-  list-orders:
-    handler: orders/list.main
+  list-user-orders:
+    handler: orders/getByUser.main
     events:
       - http:
-          path: orders
+          path: orders/{userId}
           method: get
           cors: true
           authorizer: aws_iam
@@ -77,6 +82,37 @@ functions:
           method: post
           cors: true
           authorizer: aws_iam
+          
+  send-email:
+    handler: email/send.main
+    events:
+      - http:
+          path: email
+          method: post
+          cors: true
+          authorizer: aws_iam
+
+stepFunctions:
+  stateMachines:
+    checkout:
+      events:
+        - http:
+            path: checkout
+            method: POST
+            cors: true
+            authorizer: aws_iam
+      definition:
+        Comment: "Checkout example"
+        StartAt: CreateOrder
+        States:
+          CreateOrder:
+            Type: Task
+            Resource: "arn:aws:lambda:sa-east-1:697420175218:function:aum-api-prod-create-orders"
+            Next: SendEmail
+          SendEmail:
+            Type: Task
+            Resource: "arn:aws:lambda:sa-east-1:697420175218:function:aum-api-prod-send-email"
+            End: true
           
 resources:
   # API Gateway Errors

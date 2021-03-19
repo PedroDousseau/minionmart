@@ -2,13 +2,12 @@ import handler from "../../../libs/handler-lib";
 import dynamoDb from "../../../libs/dynamodb-lib";
 
 export const main = handler(async (event, context) => {
-    const data = JSON.parse(event.body);
 
     const params = {
-        TableName: process.env.tableName,
+        TableName: process.env.orderTable,
         KeyConditionExpression: "userId = :userId",
         ExpressionAttributeValues: {
-        ":userId": data.userId,
+        ":userId": event.pathParameters.userId, // Parsed from path parameters
         },
     };
 
