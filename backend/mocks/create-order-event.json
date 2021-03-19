@@ -1,0 +1,16 @@
+{
+  "userId": "admin@admin.com",
+  "items": [
+    {
+      "product": {
+        "img": "https://minion-shop-images.s3-sa-east-1.amazonaws.com/jerry.png",
+        "createdAt": 1616090485032,
+        "details": "Boneco de Plástico<br/>Dimensões: 30x11x5 cm<br/>Peso: 211g<br/>Fabricante: Mattel",
+        "description": "Jerry gosta de gritar… “O QUEEEEEEEEEEE?”<br/><br/>Olhos: Possui dois olhos<br/> Cabelo: Cabelos espetados<br/> Corpo: Normal<br/> Tamanho: Médio<br/> Destaque: Melhor amigo do Stuart",
+        "name": "Jerry",
+        "productId": "f45b4370-8813-11eb-8783-3fe9c7975328"
+      },
+      "amount": 7
+    }
+  ]
+}
