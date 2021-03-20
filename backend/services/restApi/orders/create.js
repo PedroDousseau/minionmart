@@ -18,9 +18,16 @@ export const main = handler(async (event, context) => {
 
   return dynamoDb.put(params)
   .then(() => {
+    
+    const emailAdmin = "pedro32santos@hotmail.com";
+    const emails = [data.userId];
+    
+    if(data.userId !== emailAdmin) 
+      emails.push(emailAdmin);
+    
     return {
-      emails: [data.userId, "pedro32santos@hotmail.com"],
-      order: data.items
+      emails: emails,
+      order: params.Item
     };
   })
   .catch((err) => {

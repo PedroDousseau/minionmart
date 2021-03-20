@@ -7,7 +7,7 @@ export const main = handler(async (event, context) => {
     sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
     let outputHtml = '<div style="text-align:left"><strong>Informações do pedido:</strong><br/><br/>';
-    data.order.forEach((item) => {
+    data.order.items.forEach((item) => {
         outputHtml += `<p>- ${item.amount}x ${item.product.name}</p>`;
     });
     outputHtml += "<br/><br/><p>Seu pedido foi reservado com sucesso! Assim que os itens chegarem na loja, você poderá vir buscá-los.</p></div>";
@@ -22,9 +22,7 @@ export const main = handler(async (event, context) => {
 
     return sgMail.send(msg)
     .then(() => {
-        return {
-            to: data.emails
-        };
+        return data.order.items;
     })
     .catch((err) => {
         return {
