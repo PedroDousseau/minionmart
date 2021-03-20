@@ -27,7 +27,7 @@ export default function MyNavbar() {
 
   return (
     <div className="navbar-bg">
-      <Navbar expand='md' className="container">
+      <Navbar collapseOnSelect="true" expand='md' className="container">
         <LinkContainer to="/">
           <Navbar.Brand>
             <img src={logo} alt=""/>
