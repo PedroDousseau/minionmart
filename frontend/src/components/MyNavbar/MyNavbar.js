@@ -7,6 +7,7 @@ import { Auth } from "aws-amplify";
 import { useShopContext } from '../../contexts/shop';
 import { ClearCart } from '../../api/cartService';
 import { ClearOrders } from '../../api/ordersService';
+import logo from '../../assets/logo.svg';
 
 export default function MyNavbar() {
 
@@ -26,20 +27,27 @@ export default function MyNavbar() {
 
   return (
     <div className="navbar-bg">
-      <Navbar className="container">
+      <Navbar collapseOnSelect="true" expand='md' className="container">
         <LinkContainer to="/">
-          <Navbar.Brand>A.U.M</Navbar.Brand>
+          <Navbar.Brand>
+            <img src={logo} alt=""/>
+          </Navbar.Brand>
         </LinkContainer>
 
         <Navbar.Toggle />
 
-        <Navbar.Collapse className="justify-content-end">
+        <Navbar.Collapse className="justify-content-end text-left">
 
           {isAuthenticated ? (
             <>
             <Nav>
               <LinkContainer to="/cart">
-                <Nav.Link>Meu carrinho ({totalItems})</Nav.Link>
+                <Nav.Link>Carrinho ({totalItems})</Nav.Link>
+              </LinkContainer>
+            </Nav>
+            <Nav>
+              <LinkContainer to="/history">
+                <Nav.Link>Histórico</Nav.Link>
               </LinkContainer>
             </Nav>
             <Nav>

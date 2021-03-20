@@ -64,11 +64,11 @@
 @media (min-width: 992px) {
     .Home_bannerTitle {
         font-size: 4rem;
-        max-width: 335px;
+        max-width: 395px;
     }
     .Home_bannerDesc {
-        font-size: 2rem;
-        max-width: 400px;
+        font-size: 1.5rem;
+        max-width: 445px;
     }
     .Home_imgBanner {
         max-width: 500px;

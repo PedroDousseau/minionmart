@@ -1,0 +1,84 @@
+.History_container {
+  color: #231f20;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  min-height: calc(100vh - 139px);
+  width: 80%;
+  margin: auto;
+}
+.History_title {
+  text-transform: uppercase;
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 50px;
+}
+.History_orderCard {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #F2F2F2;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 30px;
+    padding-left: 30px;
+    border-radius: 10px;
+    margin: auto;
+    margin-bottom: 20px;
+    box-shadow: 3px 3px 7px 0px #00000030;
+    max-width: 500px;
+}
+.History_orderDate {
+    text-align: left;
+    line-height: 1;
+}
+.History_dayLabel {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 0px;
+}
+.History_monthLabel {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1rem;
+    margin: 0px;
+}
+.History_orderDetails{
+    text-align: left;
+    width: 100%;
+    padding-left: 25px;
+    margin-left: 25px;
+    border-left: 2px solid #00000017;
+    min-height: 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.History_itemLabel {
+    margin: 0px;
+}
+
+.ProductList_spinIcon {
+    animation-name: spin;
+    animation-duration: 1000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    font-size: 50px;
+    margin-bottom: 50px;
+  }
+  
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @media (min-width: 768px) {
+  }
+  
+  @media (min-width: 992px) {
+  }
+  

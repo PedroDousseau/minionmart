@@ -20,8 +20,8 @@ export default function HomeBanner() {
 
       <div className="Home_rowContainer">
         <div className="Home_leftContainer">
-          <h1 className="Home_bannerTitle">Adote um minion!</h1>
-          <h3 className="Home_bannerDesc">Adquira já as criaturas amarelas mais amadas do planeta.</h3>
+          <h1 className="Home_bannerTitle">Garanta seu Minion!</h1>
+          <h3 className="Home_bannerDesc">As miniaturas das criaturas amarelas mais amadas do planeta já estão disponíveis para reserva.</h3>
           <BasicButton
           color="#231F20"
           bgColor="#FCE029"
