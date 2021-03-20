@@ -9,11 +9,9 @@ export default function ProductsList() {
     
     const { products, setProducts } = useShopContext();
     
-    const [isLoading, setIsLoading ] = useState(false);
+    const [isLoading, setIsLoading ] = useState(true);
 
     useEffect(() => {
-        setIsLoading(true);
-
         LoadProducts(setProducts).then(() => {
             setIsLoading(false);
         });

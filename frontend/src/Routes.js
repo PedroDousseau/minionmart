@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 import Cart from "./pages/Cart/Cart";
+import History from "./pages/History/History";
 import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
 import NotFound from "./pages/NotFound/NotFound";
@@ -24,6 +25,9 @@ export default function Routes() {
             </Route>
             <Route exact path="/cart">
                 <Cart />
+            </Route>
+            <Route exact path="/history">
+                <History/>
             </Route>
             <Route>
                 <NotFound />

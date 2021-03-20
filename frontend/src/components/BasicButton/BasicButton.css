@@ -8,15 +8,16 @@
   padding-left: 20px;
   padding-right: 20px;
   border-radius: 5px;
+  box-shadow: 3px 3px 6px 0px #00000080;
+}
+.BasicButton_mainContainer:focus {
+  box-shadow: 3px 3px 6px 0px #00000080;
 }
 .BasicButton_mainContainer:hover {
   opacity: 0.9;
 }
 .BasicButton_mainContainer:disabled {
   opacity: 0.5;
-}
-.BasicButton_mainContainer:focus {
-  box-shadow: none;
 }
 .spinIcon {
   animation-name: spin;

@@ -1,7 +1,7 @@
 import { API, Auth } from 'aws-amplify';
 import { ClearCart } from './cartService';
 
-export async function loadUserOrders(setUserOrders) {
+export async function loadUserOrders() {
 
     let userOrders = JSON.parse(localStorage.getItem('userOrders'));
 
@@ -10,20 +10,19 @@ export async function loadUserOrders(setUserOrders) {
         const userId = userData.attributes.email;
 
         userOrders = await API.get("minion-shop", "/orders/"+userId+"");
+
+
+        userOrders.sort((a, b) => b.createdAt - a.createdAt);
     }
 
     if(!userOrders) userOrders = [];
 
-    setUserOrders(userOrders);
     localStorage.setItem('userOrders', JSON.stringify(userOrders));
 
     return userOrders;
 }
 
 export async function createOrder(userCart, setUserCart, setUserOrders) {
-
-    const userOrders = await loadUserOrders(setUserOrders);
-        
 
     const userData = await Auth.currentUserInfo();
     const userId = userData.attributes.email;
@@ -35,17 +34,13 @@ export async function createOrder(userCart, setUserCart, setUserOrders) {
         }
     }
 
-    const newOrder = await API.post("minion-shop", "/checkout", myInit);
+    await API.post("minion-shop", "/checkout", myInit);
 
-      let orders = userOrders.slice();
-      orders.push(newOrder);
-
-      setUserOrders(orders);
-      localStorage.setItem('userOrders', JSON.stringify(orders));
-      ClearCart(setUserCart);
+    ClearOrders(setUserOrders);
+    ClearCart(setUserCart);
 }
 
 export function ClearOrders(setUserOrders) {
-    setUserOrders([]);
-    localStorage.setItem('userOrders', JSON.stringify([]));
+    setUserOrders(null);
+    localStorage.setItem('userOrders', JSON.stringify(null));
 }
