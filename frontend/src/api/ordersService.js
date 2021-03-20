@@ -42,6 +42,6 @@ export async function createOrder(userCart, setUserCart, setUserOrders) {
 }
 
 export function ClearOrders(setUserOrders) {
-    setUserOrders(null);
+    setUserOrders([]);
     localStorage.setItem('userOrders', JSON.stringify(null));
 }
