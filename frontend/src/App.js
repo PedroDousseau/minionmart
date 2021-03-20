@@ -14,8 +14,8 @@ function App() {
   const [isAuthenticating, setIsAuthenticating] = useState(true);
 
   const [products, setProducts] = useState([]);
-  const [userCart, setUserCart] = useState(null);
-  const [userOrders, setUserOrders] = useState(null);
+  const [userCart, setUserCart] = useState([]);
+  const [userOrders, setUserOrders] = useState([]);
 
   useEffect(() => {
     loadUserSession();

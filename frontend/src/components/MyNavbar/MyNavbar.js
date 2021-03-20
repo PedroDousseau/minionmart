@@ -20,9 +20,11 @@ export default function MyNavbar() {
 
   async function handleLogout() {
     await Auth.signOut();
+    setIsAuthenticated(false);
+
+    //Clear user session
     ClearCart(setUserCart);
     ClearOrders(setUserOrders);
-    setIsAuthenticated(false);
   }  
 
   return (

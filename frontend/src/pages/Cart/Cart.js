@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import CartProductList from '../../components/CartProductList/CartProductList';
 import './Cart.css'
 import { useShopContext } from '../../contexts/shop';
@@ -15,12 +15,14 @@ export default function Cart() {
     const { isAuthenticated } = useAuthContext();
     const history = useHistory();
 
-    if(!isAuthenticated) history.replace('/login');
-
     const { userCart, setUserCart, setUserOrders } = useShopContext();
 
     const [modalShow, setModalShow] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
+
+    useEffect(() => {
+        if(!isAuthenticated) history.replace('/login');
+    }, [isAuthenticated, history]);
 
     const totalItems = userCart.reduce((acc, cur) => {
         return (acc + cur.amount)

@@ -1,7 +1,7 @@
 import { API, Auth } from 'aws-amplify';
 import { ClearCart } from './cartService';
 
-export async function loadUserOrders() {
+export async function loadUserOrders(setUserOrders) {
 
     let userOrders = JSON.parse(localStorage.getItem('userOrders'));
 
@@ -17,6 +17,7 @@ export async function loadUserOrders() {
 
     if(!userOrders) userOrders = [];
 
+    setUserOrders(userOrders);
     localStorage.setItem('userOrders', JSON.stringify(userOrders));
 
     return userOrders;

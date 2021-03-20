@@ -13,61 +13,57 @@ export default function History() {
 
     const [isLoading, setIsLoading] = useState(true);
 
-
     const history = useHistory();
-    if(!isAuthenticated) history.replace('/login');
 
 
     useEffect(() => {
-        async function fetchOrders() {
-            const orders = await loadUserOrders();
-            setUserOrders(orders);
-            setIsLoading(false);
+        if(!isAuthenticated) {
+            history.replace('/login');
+            return false;
         }
 
-        fetchOrders();
-    }, [setUserOrders]);
+        loadUserOrders(setUserOrders)
+        .then(() => {
+            setIsLoading(false);
+        })
+    }, [setUserOrders, isAuthenticated, history]);
 
 
-    const renderOrderList = () => {
-        return userOrders.map((order) => {
+    const renderOrderList = userOrders.map((order) => {
+        const orderDate = new Date(order.createdAt);
 
-            const orderDate = new Date(order.createdAt);
-
-            const orderDetails = order.items.map((item) => {
-                return (
-                    <p className="History_itemLabel" key={order.orderId + item.product.name}>- {item.amount}x {item.product.name}</p>
-                );
-            });
-
+        const orderDetails = order.items.map((item) => {
             return (
-                <div key={order.orderId} className="History_orderCard">
-
-                    <div className="History_orderDate">
-                      <p className="History_dayLabel">{orderDate.getDate()}</p> 
-                      <p className="History_monthLabel">{orderDate.toLocaleString('default', { month: 'short' })}</p>
-                    </div>
-
-                    <div className="History_orderDetails">
-                        <strong>Detalhes do pedido:</strong>
-                        {orderDetails}
-                    </div>
-
-                </div>
+                <p className="History_itemLabel" key={order.orderId + item.product.name}>- {item.amount}x {item.product.name}</p>
             );
         });
-    }
+
+        return (
+            <div key={order.orderId} className="History_orderCard">
+
+                <div className="History_orderDate">
+                    <p className="History_dayLabel">{orderDate.getDate()}</p> 
+                    <p className="History_monthLabel">{orderDate.toLocaleString('default', { month: 'short' })}</p>
+                </div>
+
+                <div className="History_orderDetails">
+                    <strong>Detalhes do pedido:</strong>
+                    {orderDetails}
+                </div>
+
+            </div>
+        );
+    });
+    
 
     const renderLoading = (
         <VscLoading className="ProductList_spinIcon" />
-    )
-
-
+    );
 
     return (
         <div className="History_container">
             <div className="History_title">Histórico</div>
-            {isLoading ? renderLoading : renderOrderList()}
+            {isLoading ? renderLoading : renderOrderList}
         </div>
     );
 }
