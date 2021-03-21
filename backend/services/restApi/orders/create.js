@@ -19,7 +19,7 @@ export const main = handler(async (event, context) => {
   return dynamoDb.put(params)
   .then(() => {
 
-    const emailAdmin = "pedro32santos@hotmail.com";
+    const emailAdmin = "thiago@bgcbrasil.com.br";
     const emails = [data.userId];
 
     if(data.userId !== emailAdmin)

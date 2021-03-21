@@ -16,7 +16,7 @@ export const main = handler(async (event, context) => {
     const msg = {
         to: data.emails, // Parsed from request body
         from: process.env.emailSender,
-        subject: 'Pedido realizado em Minion Shop!',
+        subject: 'Pedido realizado em MinionMart!',
         html: outputHtml, //Parsed from request body
     };
 
