@@ -1,15 +1,23 @@
-# 📍 Minion Mart
+<h1 align="center">
+  ⭕ Minion Mart ⭕
+</h1>
 
-A fake e-commerce app to buy Minions action figures. The project was made to explore some AWS services and most important, learn the basics of a serverless app architecture.
+<h4 align="center">A fake e-commerce app to buy Minions action figures. The project was made to explore some AWS services and learn the basics of a serverless app architecture.</h4>
+<br>
+<p align="center">
+  <a href="#-features">Features</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-built-with">Built with</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-preview">Preview</a>&nbsp;&nbsp;&nbsp;
+</p>
 
-## Features
+## 📍 Features
 - Login flow
 - Product catalog list
 - Product cart
 - Finish an order (This will just send an email to the user with the order details)
 - Order history
 
-## Built with
+## 📍 Built with
 - Frontend
 	- [React](https://reactjs.org/) - To build the app
 	- [React Router](https://reactrouter.com/) - To handle app's routing/navigation
@@ -27,5 +35,5 @@ A fake e-commerce app to buy Minions action figures. The project was made to exp
 	- [SendGrid](https://sendgrid.com/) - To handle email sending
 	- [UUID](https://github.com/uuidjs/uuid) - To help creating unique ID's
 	
-## Images
+## 📍 Preview
 ![Preview-Screens](https://github.com/PedroDousseau/minion-shop/blob/assets/minionmart-screens.jpg)
