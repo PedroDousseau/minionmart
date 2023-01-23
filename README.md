@@ -1,5 +1,5 @@
 <h1 align="center">
-  ⭕ Minion Mart ⭕
+  ⭕ Minionmart ⭕
 </h1>
 
 <h4 align="center">A fake e-commerce app to buy Minions action figures. The project was made to explore some AWS services and learn the basics of a serverless app architecture.</h4>
