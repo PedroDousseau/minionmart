@@ -1,16 +1,13 @@
-# MinionMart
+# 📍 Minion Mart
 
-![Preview-Screens](https://github.com/PedroDousseau/minion-shop/blob/assets/minionmart-screens.jpg)
+A fake e-commerce app to buy Minions action figures. The project was made to explore some AWS services and most important, learn the basics of a serverless app architecture.
 
-## About
-This is  a simple e-commerce app to buy Minions. The project was made to explore some AWS services and most important, learn the basics of a serverless app architecture.
-
-## Functionalities
-- Login/Register
-- Get the product catalog
-- Fill a cart with multiple products
-- Conclude a order (This will send an email to the user with the order details)
-- Get the order history
+## Features
+- Login flow
+- Product catalog list
+- Product cart
+- Finish an order (This will just send an email to the user with the order details)
+- Order history
 
 ## Built with
 - Frontend
@@ -29,3 +26,6 @@ This is  a simple e-commerce app to buy Minions. The project was made to explore
 	- [AWS StepFunctions](https://aws.amazon.com/step-functions/) - To orchestrate multiple services
 	- [SendGrid](https://sendgrid.com/) - To handle email sending
 	- [UUID](https://github.com/uuidjs/uuid) - To help creating unique ID's
+	
+## Images
+![Preview-Screens](https://github.com/PedroDousseau/minion-shop/blob/assets/minionmart-screens.jpg)
